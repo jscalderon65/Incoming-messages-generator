@@ -23,7 +23,7 @@ module.exports = (basePhone, limitPhones, shortCode, messagesResponses) => {
         const randomMessage =
           messagesResponses[randomNumber(0, messagesResponses.length - 1)]
         const response = await axios.get(params(phone, randomMessage))
-        return {...response.data, randomMessage}
+        return {...response.data, phone, randomMessage}
       } catch (error) {
         return error
       }
